@@ -56,9 +56,6 @@ export default function Home() {
   const changeLanguage = (lg) => {
     i18n.changeLanguage(lg);
   };
-  const displayYearError = () => {
-
-  }
   return (
     <div className="container">
       <span className="flag" onClick={() => changeLanguage("pt")}>
@@ -97,7 +94,6 @@ export default function Home() {
             onChange={(e) => setYearOfBirth(e.target.value)}
           />
         </Form.Group>
-        {/* {displayYearError()} */}
         {currentId === "" ? (
           <Button variant="success" onClick={() => addLeaf()}>
             {t("add")}
@@ -107,7 +103,6 @@ export default function Home() {
             {t("update")}
           </Button>
         )}
-       
       </Form>
       <br></br>
       <Tree
