@@ -2,7 +2,7 @@ import React from "react";
 import { getLabel, getBackground } from "./actions";
 import { Button } from "react-bootstrap";
 
-export default function Tree({ relatives, onRemove, onEdit }) {
+export default function Tree({ relatives, onRemove, onEdit, t }) {
   return (
     <div>
       {relatives.map(({ name, yearOfBirth, id, gender }) => (
@@ -13,14 +13,14 @@ export default function Tree({ relatives, onRemove, onEdit }) {
             </span>
             {getLabel({ name, yearOfBirth })}
             <Button className="space-b" onClick={() => onEdit(id)}>
-              Edit
+              {t("update")}
             </Button>
             <Button
               className="space-b"
               variant="danger"
               onClick={() => onRemove(id)}
             >
-              Delete
+              {t("delete")}
             </Button>
           </div>
         </div>

@@ -19,6 +19,13 @@ html, body {
   margin: 5px;
 }
 
+.flag img {
+  cursor:pointer;
+  border:none;
+  width:25px;
+  height:25px;
+}
+
 @media screen and (max-width: 767px) {
   input[type="text"],
   input[type="number"],
