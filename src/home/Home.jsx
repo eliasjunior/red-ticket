@@ -56,7 +56,7 @@ export default function Home() {
         voce.
       </Alert>
       <Form>
-        <Form.Group className="mb-3" controlId="formName">
+        <Form.Group className="mb-3" controlId="formName" size="sm">
           <Form.Label>Informe o nome:</Form.Label>
           <Form.Control
             type="text"
@@ -76,10 +76,10 @@ export default function Home() {
             onChange={() => setGender(!gender)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="yearOfBirth">
+        <Form.Group className="mb-3" controlId="yearOfBirth" size="sm">
           <Form.Label>Informe o ano de nascimento(YYYY):</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             name="yearOfBirth"
             value={yearOfBirth}
             placeholder="Ano de Nascimento"
