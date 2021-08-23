@@ -8,4 +8,8 @@ export const PT_BRASIL = {
   add: "Adicionar a Arvore",
   update: "Atualizar",
   delete: "Deletar",
+  resultSuccess: "Parabens, Voce tem direito a cidadania",
+  resultFail: "Você não tem direito a cidadania por vía administrativa",
+  noTree: "Entre com os familiares",
+  required: "Este campo e obrigatório",
 };

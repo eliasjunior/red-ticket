@@ -15,8 +15,8 @@ html, body {
   margin: 3px;
 }
 
-.space-b {
-  margin: 5px;
+.flag {
+  margin: 15px 5px 0px 5px;
 }
 
 .flag img {
@@ -25,6 +25,17 @@ html, body {
   width:25px;
   height:25px;
 }
+
+.invalid {
+  border: #e8a5ab solid 1px;
+  border-radius: 3px;
+  color: #e8a5ab;
+}
+.row_red_ticket {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 
 @media screen and (max-width: 767px) {
   input[type="text"],

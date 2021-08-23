@@ -1,0 +1,14 @@
+.list-btn {
+    display: flex;
+}
+
+.space-b {
+    margin: 5px;
+}
+
+.list_relative {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+  

@@ -8,4 +8,8 @@ export const ES_ARGENTINA = {
   add: "Agregar al árbol",
   update: "Actualizar",
   delete: "Borrar",
+  resultSuccess: "Felicitaciones, tienes derecho a la ciudadanía.",
+  resultFail: "No tiene derecho a la ciudadanía por medios administrativos",
+  noTree: "Ingrese el árbol",
+  required: "Este campo e obrigatório",
 };

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Alert, Button, Form } from "react-bootstrap";
-//import { useForm } from "react-hook-form";
-import { displayResult } from "./actions";
+import { Button, Form } from "react-bootstrap";
 import Tree from "./Tree";
 import { useTranslation } from "react-i18next";
-import i18n from "i18next";
+import Header from "./Header";
+import Result from "./Result";
+import InvalidInput from "./common/InputInvalid";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -14,13 +14,7 @@ export default function Home() {
   const [relatives, setRelatives] = useState([]);
   const [isDone, setDone] = useState(false);
   const { t } = useTranslation();
-  //   const {
-  //     register,
-  //     handleSubmit,
-  //     watch,
-  //     formState: { errors },
-  //   } = useForm();
-  //console.log(watch("name"));
+  const [errors, setErrors] = useState([]);
 
   const addLeaf = () => {
     if (currentId === "") {
@@ -46,25 +40,15 @@ export default function Home() {
 
   const editFromTree = (_id) => {
     const selected = relatives.filter(({ id }) => id === _id).pop();
-    console.log("selected", selected);
     setGender(selected.gender);
     setName(selected.name);
     setYearOfBirth(selected.yearOfBirth);
     setCurrentId(selected.id);
   };
 
-  const changeLanguage = (lg) => {
-    i18n.changeLanguage(lg);
-  };
   return (
     <div className="container">
-      <span className="flag" onClick={() => changeLanguage("pt")}>
-        <img src="images/brazil.png" alt="Brasil" />
-      </span>
-      <span className="flag" onClick={() => changeLanguage("es")}>
-        <img src="images/argentina.png" alt="Argentina" />
-      </span>
-      <Alert variant="light">{t("greetings")}</Alert>
+      <Header t={t}></Header>
       <Form>
         <Form.Group className="mb-3" controlId="formName" size="sm">
           <Form.Label>{t("name")}</Form.Label>
@@ -75,7 +59,7 @@ export default function Home() {
             onChange={(e) => setName(e.target.value)}
           />
         </Form.Group>
-
+        <InvalidInput fieldName="name" t={t} errors={errors}></InvalidInput>
         <Form.Group className="mb-3" controlId="isWoman">
           <Form.Check
             type="checkbox"
@@ -94,29 +78,36 @@ export default function Home() {
             onChange={(e) => setYearOfBirth(e.target.value)}
           />
         </Form.Group>
-        {currentId === "" ? (
-          <Button variant="success" onClick={() => addLeaf()}>
-            {t("add")}
-          </Button>
-        ) : (
-          <Button variant="success" onClick={() => addLeaf(currentId)}>
-            {t("update")}
-          </Button>
-        )}
+        <InvalidInput
+          fieldName="yearOfBirth"
+          t={t}
+          errors={errors}
+        ></InvalidInput>
+        <div className="row_red_ticket">
+          {currentId === "" ? (
+            <Button variant="success" onClick={addLeaf}>
+              <i class="fas fa-user-plus"></i>
+            </Button>
+          ) : (
+            <Button variant="success" onClick={addLeaf}>
+              <i className="fas fa-edit"></i>
+            </Button>
+          )}
+        </div>
       </Form>
-      <br></br>
       <Tree
         relatives={relatives}
         onRemove={removeFromTree}
         onEdit={editFromTree}
-        t={t}
       ></Tree>
-      <Button variant="warning" onClick={() => setDone(!isDone)}>
-        <i className="fas fa-tree"></i> {t("generate")}
-      </Button>
-      <br></br>
-      <br></br>
-      {displayResult(relatives, isDone)}
+      <div className="row_red_ticket">
+        <Button variant="warning" onClick={() => setDone(!isDone)}>
+          <i className="fas fa-tree"></i> {t("generate")}
+        </Button>
+      </div>
+      <div className="row_red_ticket">
+        <Result relatives={relatives} isDone={isDone} t={t}></Result>
+      </div>
     </div>
   );
 }
