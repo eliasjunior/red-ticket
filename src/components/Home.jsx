@@ -86,7 +86,7 @@ export default function Home() {
         <div className="row_red_ticket">
           {currentId === "" ? (
             <Button variant="success" onClick={addLeaf}>
-              <i class="fas fa-user-plus"></i>
+              <i className="fas fa-user-plus"></i>
             </Button>
           ) : (
             <Button variant="success" onClick={addLeaf}>
