@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import Header from "./Header";
 import Result from "./Result";
 import InvalidInput from "./common/InputInvalid";
+import { validation } from "./actions";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -17,6 +18,14 @@ export default function Home() {
   const [errors, setErrors] = useState([]);
 
   const addLeaf = () => {
+    const errors = validation({ name, yearOfBirth });
+    if (errors.length > 0) {
+      setErrors([...errors]);
+      return;
+    } else {
+      setErrors([]);
+    }
+
     if (currentId === "") {
       setRelatives([
         ...relatives,
