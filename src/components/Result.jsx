@@ -7,9 +7,21 @@ export default function Result({ relatives, t, isDone }) {
       return <div className="alert alert-warning">{t("noTree")}.</div>;
     }
     return getResult(relatives) ? (
-      <div className="alert alert-danger">{t("resultFail")}</div>
+      <div className="alert alert-danger">
+        {t("resultFail")}
+        <a href="#" className="alert-link">
+          an example link
+        </a>
+        . Give it a click if you like.
+      </div>
     ) : (
-      <div className="alert alert-success">{t("resultSuccess")}</div>
+      <div className="alert alert-success">
+        {t("resultSuccess")}
+        <a href="#" className="alert-link">
+          {t("link")}
+        </a>
+        {t("docs")}
+      </div>
     );
   } else {
     return "";

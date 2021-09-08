@@ -30,7 +30,6 @@ export function changeLanguage(lg) {
   i18n.changeLanguage(lg);
 }
 
-
 export function validation({name, yearOfBirth}) {
   const result = [];
   if (!name || name === "") {
