@@ -10,9 +10,8 @@ export default function Result({ relatives, t, isDone }) {
       <div className="alert alert-danger">
         {t("resultFail")}
         <a href="#" className="alert-link">
-          an example link
+          {t("linkDocs")}
         </a>
-        . Give it a click if you like.
       </div>
     ) : (
       <div className="alert alert-success">

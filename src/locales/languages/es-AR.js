@@ -14,4 +14,6 @@ export const ES_ARGENTINA = {
   required: "Este campo e obrigatório",
   docs: "para ver la documentación requerida",
   link: " aqui ",
+  headerTitle: "Pasaporte rojo",
+  linkDocs: "marque aquí las opciones",
 };

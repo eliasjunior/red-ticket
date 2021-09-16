@@ -48,10 +48,17 @@ html, body {
   padding: var(--flow-md) 0;
 }
 
-.main-bar {
+.header__main-bar {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+}
+
+.header__main-bar--title {
+  color: azure;
+  font-weight: 700;
+  font-size: larger;
+  font-family: monospace;
 }
 
 .container__header {

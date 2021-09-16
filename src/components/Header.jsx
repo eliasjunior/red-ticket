@@ -2,14 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { changeLanguage } from "./actions";
 
-const Header = () => {
+const Header = ({ t }) => {
   return (
     <header id="header" className="header" role="banner">
       <div className="container__header">
-        <div className="main-bar">
-          {/* <Link to="/" className="logo"> */}
+        <div className="header__main-bar">
           <img src="images/logo.png" alt="European Union" width="30px" />
-          {/* </Link> */}
+          <div className="header__main-bar--title">{t("headerTitle")}</div>
           <div>
             <span className="flag" onClick={() => changeLanguage("pt")}>
               <img src="images/brazil.png" alt="Brasil" />
@@ -26,6 +25,7 @@ const Header = () => {
 
 Header.propTypes = {
   title: PropTypes.string,
+  t: PropTypes.func,
 };
 
 export default Header;

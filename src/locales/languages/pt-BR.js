@@ -14,4 +14,6 @@ export const PT_BRASIL = {
   required: "Este campo e obrigatório",
   docs: "para ver documentação necessária",
   link: " aqui ",
+  headerTitle: "Passaporte Vermelho",
+  linkDocs: " verifique aqui para saber quais são as opções",
 };
